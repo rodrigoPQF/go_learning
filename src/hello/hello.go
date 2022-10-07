@@ -2,40 +2,53 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 	"reflect"
 )
 
 func main() {
 
-	exibeIntroducao()
-	exibeMenu()
-	comando := leComando()
+	for {
+		exibeIntroducao()
+		exibeMenu()
 
-	// ############## IF NORMAL ##############
-	// if comando == 1 {
-	// 	fmt.Println("Monitorando...")
-	// } else if comando == 2 {
-	// 	fmt.Println("Exibindo Logs...")
-	// } else if comando == 0 {
-	// 	fmt.Println("Saindo do Programa...")
-	// } else {
-	// 	fmt.Println("Não conheço este comando")
-	// }
+		_, idade := devolveNome()
+		fmt.Println(idade)
+		comando := leComando()
 
-	switch comando {
-	case 1:
-		fmt.Println("Monitorando...")
-	case 2:
-		fmt.Println("Exibindo Logs...")
-	case 0:
-		fmt.Println("Saindo do Programa...")
-		os.Exit(0)
-	default:
-		fmt.Println("Não conheço este comando")
-		os.Exit(-1)
+		// ############## IF NORMAL ##############
+		// if comando == 1 {
+		// 	fmt.Println("Monitorando...")
+		// } else if comando == 2 {
+		// 	fmt.Println("Exibindo Logs...")
+		// } else if comando == 0 {
+		// 	fmt.Println("Saindo do Programa...")
+		// } else {
+		// 	fmt.Println("Não conheço este comando")
+		// }
 
+		switch comando {
+		case 1:
+			iniciaMonitoramento()
+		case 2:
+			fmt.Println("Exibindo Logs...")
+		case 0:
+			fmt.Println("Saindo do Programa...")
+			os.Exit(0)
+		default:
+			fmt.Println("Não conheço este comando")
+			os.Exit(-1)
+
+		}
 	}
+
+}
+
+func devolveNome() (string, int) {
+	nome := "Rodrigo"
+	idade := 21
+	return nome, idade
 
 }
 
@@ -65,4 +78,15 @@ func exibeMenu() {
 
 func saiDoPrograma() {
 	fmt.Println("Saindo do Programa...")
+}
+
+func iniciaMonitoramento() {
+	site := "https://www.alura.com.br"
+	respon, _ := http.Get(site)
+	if respon.StatusCode == 200 {
+		fmt.Println("Site:", site, "foi carregado com sucesso!")
+	} else {
+		fmt.Println("Site:", site, "está com problemas. Status Code:", respon.StatusCode)
+	}
+
 }
