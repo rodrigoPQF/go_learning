@@ -5,13 +5,18 @@ import (
 	"net/http"
 	"os"
 	"reflect"
+	"time"
 )
+
+const monitoramentos = 3
+const delay = 5
 
 func main() {
 
 	for {
-		exibeIntroducao()
-		exibeMenu()
+		exibeNomes()
+		// exibeIntroducao()
+		// exibeMenu()
 
 		_, idade := devolveNome()
 		fmt.Println(idade)
@@ -81,12 +86,32 @@ func saiDoPrograma() {
 }
 
 func iniciaMonitoramento() {
-	site := "https://www.alura.com.br"
+	sites := []string{"https://google.com", "https://www.alura.com.br", "https://www.alura.com.br"}
+
+	for i := 0; i < monitoramentos; i++ {
+		for i, site := range sites {
+			fmt.Println("Estou passando na posicao", i, "do meu slice e essa posicao tem o site:", site)
+			testeSite(site)
+		}
+		time.Sleep(delay * time.Second)
+	}
+
+}
+func testeSite(site string) {
 	respon, _ := http.Get(site)
+
 	if respon.StatusCode == 200 {
 		fmt.Println("Site:", site, "foi carregado com sucesso!")
 	} else {
 		fmt.Println("Site:", site, "está com problemas. Status Code:", respon.StatusCode)
 	}
+}
+func exibeNomes() {
+	nomes := []string{"Douglas", "Daniel", "Bernardo"}
+	nomes = append(nomes, "Aparecido")
+	fmt.Println(nomes)
+	fmt.Println(reflect.TypeOf(nomes))
+	fmt.Println("Meu array tem ", len(nomes))
+	fmt.Println("Meu slice tem capacidade para", cap(nomes), "itens")
 
 }
