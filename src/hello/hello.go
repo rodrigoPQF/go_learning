@@ -2,6 +2,12 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"strconv"
+	"strings"
+
+	// "io/ioutil"
+	"bufio"
 	"net/http"
 	"os"
 	"reflect"
@@ -12,14 +18,14 @@ const monitoramentos = 3
 const delay = 5
 
 func main() {
+	exibeIntroducao()
 
 	for {
-		exibeNomes()
-		// exibeIntroducao()
-		// exibeMenu()
-
-		_, idade := devolveNome()
-		fmt.Println(idade)
+		// lerSitesDoArquivo()
+		// exibeNomes()
+		exibeMenu()
+		// _, idade := devolveNome()
+		// fmt.Println(idade)
 		comando := leComando()
 
 		// ############## IF NORMAL ##############
@@ -86,8 +92,9 @@ func saiDoPrograma() {
 }
 
 func iniciaMonitoramento() {
-	sites := []string{"https://google.com", "https://www.alura.com.br", "https://www.alura.com.br"}
+	// sites := []string{"https://google.com", "https://www.alura.com.br", "https://www.alura.com.br"}
 
+	sites := lerSitesDoArquivo()
 	for i := 0; i < monitoramentos; i++ {
 		for i, site := range sites {
 			fmt.Println("Estou passando na posicao", i, "do meu slice e essa posicao tem o site:", site)
@@ -102,8 +109,10 @@ func testeSite(site string) {
 
 	if respon.StatusCode == 200 {
 		fmt.Println("Site:", site, "foi carregado com sucesso!")
+		registraLog(site, true)
 	} else {
 		fmt.Println("Site:", site, "está com problemas. Status Code:", respon.StatusCode)
+		registraLog(site, false)
 	}
 }
 func exibeNomes() {
@@ -114,4 +123,40 @@ func exibeNomes() {
 	fmt.Println("Meu array tem ", len(nomes))
 	fmt.Println("Meu slice tem capacidade para", cap(nomes), "itens")
 
+}
+
+func lerSitesDoArquivo() []string {
+	var sites []string
+	arquivo, err := os.Open("sites.txt")
+	// arquivo, err := ioutil.ReadFile("sites.txt")
+	if err != nil {
+		fmt.Println("Ocorreu um erro: ", err)
+
+	}
+	leitor := bufio.NewReader(arquivo)
+	for {
+		linha, err := leitor.ReadString('\n')
+		linha = strings.TrimSpace(linha)
+
+		sites = append(sites, linha)
+
+		fmt.Println(linha)
+		if err == io.EOF {
+			break
+		}
+	}
+	fmt.Println(sites)
+	return sites
+}
+
+func registraLog(site string, status bool) {
+
+	arquivo, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	arquivo.WriteString(site + "- online: " + strconv.FormatBool(status))
+
+	arquivo.Close()
 }
