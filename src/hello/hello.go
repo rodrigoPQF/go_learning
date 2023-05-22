@@ -111,4 +111,7 @@ func stringFunc() {
 	sb := []byte(s)
 	fmt.Printf("%v \n%T", sb, sb)
 
+	for _, v := range sb {
+		fmt.Printf("%v - %T - %#U - %#X \n", v, v, v, v)
+	}
 }
