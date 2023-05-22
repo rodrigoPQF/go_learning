@@ -8,7 +8,9 @@ var k int
 
 func main() {
 	// zeros()
-	pacoteFMT()
+	// pacoteFMT()
+	// myType()
+	convert()
 
 }
 
@@ -46,4 +48,23 @@ func pacoteFMT() {
 	z = fmt.Sprintln(x, y) // Retorna uma String com espaçamento
 
 	fmt.Println(z)
+}
+
+// Criar tipagems
+
+type hotdog int
+
+var p hotdog = 10
+
+func myType() {
+	numeroComp := 10
+	fmt.Printf("%T", p)
+	p = hotdog(numeroComp) // p = numeroComp da erro
+}
+
+// Converter e nao coerção
+
+func convert() {
+	a := int(p)
+	fmt.Printf("%T - %v", a, a)
 }
