@@ -7,7 +7,8 @@ var x int = 10
 var k int
 
 func main() {
-	zeros()
+	// zeros()
+	pacoteFMT()
 
 }
 
@@ -31,4 +32,18 @@ func zeros() {
 	fmt.Printf("C: %v \n", c)
 	fmt.Printf("D: %v", d)
 
+}
+
+// Pacote FMT
+
+func pacoteFMT() {
+	x := "Oi"
+	y := ", Bom dia"
+	fmt.Print("Oi", "bom\n")     // Retornar bytes sem espaçamento
+	fmt.Println("Oi", "bom dia") // Retorna bytes com espaçamento
+
+	z := fmt.Sprint(x, y)  // Retorna uma String sem espaçamento
+	z = fmt.Sprintln(x, y) // Retorna uma String com espaçamento
+
+	fmt.Println(z)
 }
