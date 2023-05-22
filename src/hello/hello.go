@@ -11,8 +11,9 @@ func main() {
 	// pacoteFMT()
 	// myType()
 	// convert()
-	booleanFunc()
-
+	// booleanFunc()
+	// numericFunc()
+	stringFunc()
 }
 
 func anyThing(x int) {
@@ -81,4 +82,33 @@ func booleanFunc() {
 	y := 10 == 100
 	z := 100 > 10
 	fmt.Print(x, y, z)
+}
+
+func numericFunc() {
+	// var num1 uint
+	// var num2 int
+	// var num3 float32
+	// var num4 complex64
+	// var num5 byte
+	// var num6 rune
+	a := "e"
+	b := "é"
+	c := "色"
+
+	fmt.Printf("%v, %v ,%v \n", a, b, c)
+
+	d := []byte(a)
+	e := []byte(b)
+	f := []byte(c)
+
+	fmt.Printf("%v, %v ,%v", d, e, f)
+
+}
+
+func stringFunc() {
+	s := `Hello, 
+	playground`
+	sb := []byte(s)
+	fmt.Printf("%v \n%T", sb, sb)
+
 }
