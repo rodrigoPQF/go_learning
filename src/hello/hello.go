@@ -10,7 +10,8 @@ func main() {
 	// zeros()
 	// pacoteFMT()
 	// myType()
-	convert()
+	// convert()
+	booleanFunc()
 
 }
 
@@ -67,4 +68,17 @@ func myType() {
 func convert() {
 	a := int(p)
 	fmt.Printf("%T - %v", a, a)
+}
+
+// Tipo Booleano
+
+func booleanFunc() {
+	var x bool
+	fmt.Println(x)
+	x = true
+
+	x = (10 < 100)
+	y := 10 == 100
+	z := 100 > 10
+	fmt.Print(x, y, z)
 }
