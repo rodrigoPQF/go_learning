@@ -7,10 +7,7 @@ var x int = 10
 var k int
 
 func main() {
-	k = 10 // Só pode ser atribuido dentro de uma função
-	z := 20
-	// x = 'Test' - Go é staticamente tipado , não muda é possivel alterar o tipo
-	anyThing(z)
+	zeros()
 
 }
 
@@ -19,4 +16,19 @@ func anyThing(x int) {
 	fmt.Println(y)
 	// - Usando a variavel [x] dentro da função main ( z := 20)
 	fmt.Println(x)
+}
+
+// Variáveis, Valores e TIpos - Valor Zero
+
+var a int
+var b float64
+var c string
+var d bool
+
+func zeros() {
+	fmt.Printf("A: %v \n", a)
+	fmt.Printf("B: %v \n", b)
+	fmt.Printf("C: %v \n", c)
+	fmt.Printf("D: %v", d)
+
 }
