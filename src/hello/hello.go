@@ -13,7 +13,8 @@ func main() {
 	// convert()
 	// booleanFunc()
 	// numericFunc()
-	stringFunc()
+	// stringFunc()
+	numericSystem()
 }
 
 func anyThing(x int) {
@@ -114,4 +115,9 @@ func stringFunc() {
 	for _, v := range sb {
 		fmt.Printf("%v - %T - %#U - %#X \n", v, v, v, v)
 	}
+}
+
+func numericSystem() {
+	a := 100
+	fmt.Printf("%d\t%b\t%#x", a, a, a) //format verb
 }
