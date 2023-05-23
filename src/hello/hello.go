@@ -14,7 +14,8 @@ func main() {
 	// booleanFunc()
 	// numericFunc()
 	// stringFunc()
-	numericSystem()
+	// numericSystem()
+	constants()
 }
 
 func anyThing(x int) {
@@ -120,4 +121,15 @@ func stringFunc() {
 func numericSystem() {
 	a := 100
 	fmt.Printf("%d\t%b\t%#x", a, a, a) //format verb
+}
+
+const l = 10 // Ele so se torna algo quando usado
+
+var s int
+var h float32
+
+func constants() {
+	s = l
+	h = l
+	fmt.Println(s)
 }
