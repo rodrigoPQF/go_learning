@@ -124,6 +124,11 @@ func numericSystem() {
 }
 
 const l = 10 // Ele so se torna algo quando usado
+const (
+	ha = 10
+	hb = 20
+	hz = 30
+)
 
 var s int
 var h float32
@@ -132,4 +137,5 @@ func constants() {
 	s = l
 	h = l
 	fmt.Println(s)
+	fmt.Println(ha, hb, hz)
 }
