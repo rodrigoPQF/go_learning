@@ -15,7 +15,8 @@ func main() {
 	// numericFunc()
 	// stringFunc()
 	// numericSystem()
-	constants()
+	// constants()
+	iotaType()
 }
 
 func anyThing(x int) {
@@ -138,4 +139,24 @@ func constants() {
 	h = l
 	fmt.Println(s)
 	fmt.Println(ha, hb, hz)
+}
+
+//Iota
+
+const (
+	hx = iota + 1*10
+	kz
+	ka
+)
+const (
+	ioa = iota
+	iob = iota
+	ioc = iota
+)
+
+// Usado quando não liga para os valores da constantes, so que seja diferente
+// Tipo enum
+
+func iotaType() {
+	fmt.Println(hx, kz, ka)
 }
