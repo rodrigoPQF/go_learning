@@ -27,7 +27,8 @@ func main() {
 	// switchType()
 	// operateLogic()
 	// firstArray()
-	firstSlices()
+	// firstSlices()
+	slicesToSlice()
 }
 
 func anyThing(x int) {
@@ -322,4 +323,17 @@ func firstSlices() {
 		fmt.Println(valor)
 	}
 
+}
+
+func slicesToSlice() {
+	sabores := []string{"pepperoni", "mozzarela", "marguerita"}
+
+	fatia := sabores[0:2]
+	fmt.Println(fatia)
+
+	fmt.Println(sabores[:])
+
+	for i := 0; i < len(sabores); i++ {
+		fmt.Println(sabores[i])
+	}
 }
