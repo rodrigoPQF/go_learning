@@ -23,7 +23,8 @@ func main() {
 	// customWhile()
 	// forContinue()
 	// conditionIf()
-	conditionSwitch()
+	// conditionSwitch()
+	switchType()
 }
 
 func anyThing(x int) {
@@ -257,4 +258,19 @@ func conditionSwitch() {
 		fmt.Println("ta vazio")
 	}
 
+}
+
+var ty interface{}
+
+func switchType() {
+	ty = true
+	switch ty.(type) {
+	case int:
+		fmt.Println("E int")
+	case bool:
+		fmt.Println("E bool")
+	case string:
+		fmt.Println("E string")
+
+	}
 }
