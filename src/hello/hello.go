@@ -24,7 +24,8 @@ func main() {
 	// forContinue()
 	// conditionIf()
 	// conditionSwitch()
-	switchType()
+	// switchType()
+	operateLogic()
 }
 
 func anyThing(x int) {
@@ -272,5 +273,17 @@ func switchType() {
 	case string:
 		fmt.Println("E string")
 
+	}
+}
+
+func operateLogic() {
+	xis := 3
+	if xis == 2 || xis == 3 {
+
+		fmt.Println(xis)
+	}
+
+	if xis%2 == 0 && xis%3 == 2 {
+		fmt.Println("É multiplo de dois e treis")
 	}
 }
