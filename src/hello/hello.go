@@ -19,7 +19,8 @@ func main() {
 	// iotaType()
 	// deslocBit()
 	// loopfor()
-	nestedLoop()
+	// nestedLoop()
+	customWhile()
 }
 
 func anyThing(x int) {
@@ -193,5 +194,23 @@ func nestedLoop() {
 			}
 		}
 	}
+}
 
+func customWhile() {
+	x := 0
+	for x < 10 {
+		fmt.Println("Esse while")
+		x++
+	}
+	//Loop infinito
+	for {
+		fmt.Println("Loop infinito")
+		if x < 10 {
+			x++
+			fmt.Println("Xis")
+		} else {
+			fmt.Println("Xiss ")
+			break
+		}
+	}
 }
