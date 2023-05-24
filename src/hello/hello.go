@@ -18,7 +18,8 @@ func main() {
 	// constants()
 	// iotaType()
 	// deslocBit()
-	loopfor()
+	// loopfor()
+	nestedLoop()
 }
 
 func anyThing(x int) {
@@ -178,6 +179,19 @@ func deslocBit() {
 func loopfor() {
 	for x := 0; x < 10; x++ {
 		fmt.Println(x)
+	}
+
+}
+
+func nestedLoop() {
+	for horas := 0; horas <= 24; horas++ {
+		fmt.Print("Horas:", horas, "\n")
+		for min := 0; min < 60; min++ {
+			fmt.Print("Minutos: ", min, "\n")
+			for segundos := 0; segundos < 60; segundos++ {
+				fmt.Print("Segundos: ", segundos, "\n")
+			}
+		}
 	}
 
 }
