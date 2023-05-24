@@ -20,7 +20,8 @@ func main() {
 	// deslocBit()
 	// loopfor()
 	// nestedLoop()
-	customWhile()
+	// customWhile()
+	forContinue()
 }
 
 func anyThing(x int) {
@@ -212,5 +213,15 @@ func customWhile() {
 			fmt.Println("Xiss ")
 			break
 		}
+	}
+}
+
+func forContinue() {
+	for i := 0; i < 20; i++ {
+		if i%2 != 0 {
+			continue
+		}
+		fmt.Println(i)
+
 	}
 }
