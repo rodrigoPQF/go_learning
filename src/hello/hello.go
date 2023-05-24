@@ -26,7 +26,8 @@ func main() {
 	// conditionSwitch()
 	// switchType()
 	// operateLogic()
-	firstArray()
+	// firstArray()
+	firstSlices()
 }
 
 func anyThing(x int) {
@@ -296,5 +297,29 @@ func firstArray() {
 	fmt.Println(x)
 	fmt.Println(x[0])
 	fmt.Println(len(x))
+
+}
+
+func firstSlices() {
+	array := [5]int{1, 2, 3, 4, 5}
+	fmt.Println(array)
+	slice := []int{1, 2, 3, 4, 5}
+	fmt.Println(slice)
+
+	array2 := append(array[:], 6)
+	slice2 := append(slice, 6)
+	fmt.Println(array2)
+	fmt.Println(slice2)
+	slice2[2] = 1234
+	fmt.Println(slice2)
+
+	sliceStr := []string{"banan", "maca", "jaca"}
+	for idx, valor := range sliceStr {
+		fmt.Println("Idx", idx, "valor", valor)
+	}
+
+	for _, valor := range sliceStr {
+		fmt.Println(valor)
+	}
 
 }
