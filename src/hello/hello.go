@@ -16,7 +16,8 @@ func main() {
 	// stringFunc()
 	// numericSystem()
 	// constants()
-	iotaType()
+	// iotaType()
+	deslocBit()
 }
 
 func anyThing(x int) {
@@ -159,4 +160,16 @@ const (
 
 func iotaType() {
 	fmt.Println(hx, kz, ka)
+}
+
+// Deslocamento de bits
+
+func deslocBit() {
+	x := 1
+	y := x << 1
+	z := x >> 1
+	fmt.Printf("%b\n", x)
+	fmt.Printf("%b\n", y)
+	fmt.Printf("%b\n", z)
+
 }
