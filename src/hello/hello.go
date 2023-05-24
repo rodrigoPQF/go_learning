@@ -21,7 +21,8 @@ func main() {
 	// loopfor()
 	// nestedLoop()
 	// customWhile()
-	forContinue()
+	// forContinue()
+	conditionIf()
 }
 
 func anyThing(x int) {
@@ -223,5 +224,19 @@ func forContinue() {
 		}
 		fmt.Println(i)
 
+	}
+}
+
+func conditionIf() {
+	x := 10
+	if x < 100 {
+		fmt.Println("Hello")
+	}
+	if !(x < 100) {
+		fmt.Println("Hello is false")
+	} else if x < 10 {
+		fmt.Println("Hello is true")
+	} else {
+		fmt.Println("Hello is ...")
 	}
 }
