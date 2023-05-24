@@ -17,7 +17,8 @@ func main() {
 	// numericSystem()
 	// constants()
 	// iotaType()
-	deslocBit()
+	// deslocBit()
+	loopfor()
 }
 
 func anyThing(x int) {
@@ -171,5 +172,12 @@ func deslocBit() {
 	fmt.Printf("%b\n", x)
 	fmt.Printf("%b\n", y)
 	fmt.Printf("%b\n", z)
+
+}
+
+func loopfor() {
+	for x := 0; x < 10; x++ {
+		fmt.Println(x)
+	}
 
 }
