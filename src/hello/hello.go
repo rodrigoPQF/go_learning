@@ -25,7 +25,8 @@ func main() {
 	// conditionIf()
 	// conditionSwitch()
 	// switchType()
-	operateLogic()
+	// operateLogic()
+	firstArray()
 }
 
 func anyThing(x int) {
@@ -286,4 +287,14 @@ func operateLogic() {
 	if xis%2 == 0 && xis%3 == 2 {
 		fmt.Println("É multiplo de dois e treis")
 	}
+}
+
+func firstArray() {
+	var x [5]int
+	x[0] = 1
+	x[1] = 10
+	fmt.Println(x)
+	fmt.Println(x[0])
+	fmt.Println(len(x))
+
 }
