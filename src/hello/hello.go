@@ -29,7 +29,8 @@ func main() {
 	// firstArray()
 	// firstSlices()
 	// slicesToSlice()
-	appendSlice()
+	// appendSlice()
+	makeSlice()
 }
 
 func anyThing(x int) {
@@ -347,4 +348,12 @@ func appendSlice() {
 	fmt.Println(doislice, umslice)
 	umslice = append(umslice, doislice...)
 	fmt.Println(umslice)
+}
+
+func makeSlice() {
+	makeslice := make([]int, 5, 10)
+
+	makeslice[0], makeslice[1] = 1, 2
+
+	fmt.Println(makeslice, len(makeslice), cap(makeslice))
 }
