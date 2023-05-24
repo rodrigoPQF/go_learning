@@ -28,7 +28,8 @@ func main() {
 	// operateLogic()
 	// firstArray()
 	// firstSlices()
-	slicesToSlice()
+	// slicesToSlice()
+	appendSlice()
 }
 
 func anyThing(x int) {
@@ -336,4 +337,14 @@ func slicesToSlice() {
 	for i := 0; i < len(sabores); i++ {
 		fmt.Println(sabores[i])
 	}
+}
+
+func appendSlice() {
+	umslice := []int{1, 2, 3, 4}
+	doislice := []int{9, 10, 11, 12}
+
+	umslice = append(umslice, 5, 6, 7, 8)
+	fmt.Println(doislice, umslice)
+	umslice = append(umslice, doislice...)
+	fmt.Println(umslice)
 }
