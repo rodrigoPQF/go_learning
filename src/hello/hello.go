@@ -22,7 +22,8 @@ func main() {
 	// nestedLoop()
 	// customWhile()
 	// forContinue()
-	conditionIf()
+	// conditionIf()
+	conditionSwitch()
 }
 
 func anyThing(x int) {
@@ -239,4 +240,21 @@ func conditionIf() {
 	} else {
 		fmt.Println("Hello is ...")
 	}
+}
+
+func conditionSwitch() {
+	x := 5
+	y := 10
+	switch true {
+	case x == 5, y > 10:
+		fmt.Println("xis igual a cinco")
+		fallthrough
+	case x == 3, y < 3:
+		fmt.Println("XIS IGUAL A TRES")
+	case x > 5:
+		fmt.Println("xis e maior que cinco")
+	default:
+		fmt.Println("ta vazio")
+	}
+
 }
