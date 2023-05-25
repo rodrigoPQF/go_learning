@@ -602,3 +602,12 @@ func implement() {
 	serhumano(mrdente)
 	serhumano(mrpredio)
 }
+
+func funcaoAnonima() {
+	xz := 10
+
+	func(xz int) {
+		fmt.Println(xz * 10)
+	}(xz)
+
+}
