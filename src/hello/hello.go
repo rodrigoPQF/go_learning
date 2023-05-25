@@ -752,8 +752,16 @@ func mySort() {
 
 func senha() {
 	senha := "3001rodrigo"
+	senhaerrada := "3002rodrigo"
 
-	sb, _ := bcrypt.GenerateFromPassword([]byte(senha), 4)
+	sb, err := bcrypt.GenerateFromPassword([]byte(senha), 4)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(string(sb))
+
+	bcrypt.CompareHashAndPassword(sb, []byte(senhaerrada))
 
 	fmt.Println(sb)
+
 }
