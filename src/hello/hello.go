@@ -611,3 +611,12 @@ func funcaoAnonima() {
 	}(xz)
 
 }
+
+func expression() {
+	xis := 10
+	yps := func(x int) int {
+		return x * 89999
+	}
+
+	fmt.Println(xis, "vezes", yps(xis))
+}
