@@ -30,7 +30,8 @@ func main() {
 	// firstSlices()
 	// slicesToSlice()
 	// appendSlice()
-	makeSlice()
+	// makeSlice()
+	sliceMultDimension()
 }
 
 func anyThing(x int) {
@@ -356,4 +357,31 @@ func makeSlice() {
 	makeslice[0], makeslice[1] = 1, 2
 
 	fmt.Println(makeslice, len(makeslice), cap(makeslice))
+}
+
+func sliceMultDimension() {
+	ss := [][]int{
+		{1, 2, 3, 4},
+		{4, 5, 6, 7},
+		{8, 9, 10, 11},
+	}
+	sss := [][][]int{
+		{
+			{1, 2, 3, 4},
+			{4, 5, 6, 7},
+			{8, 9, 10, 11},
+		},
+		{
+			{1, 2, 3, 4},
+			{4, 5, 6, 7},
+			{8, 9, 10, 11},
+		},
+		{
+			{1, 2, 3, 4},
+			{4, 5, 6, 7},
+			{8, 9, 10, 11},
+		},
+	}
+	fmt.Println(ss[1][1])
+	fmt.Println(sss[0][1][0])
 }
