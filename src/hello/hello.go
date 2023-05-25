@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
 )
 
 var y = "strings" // Disponivel em todo o package - não da para usar ":="
@@ -676,4 +678,33 @@ func estarecebeumponteir(x *int) {
 	*x++
 	fmt.Println("NA FUN", *x)
 
+}
+
+func jsonTratamento() {
+	type pessoa struct {
+		nome      string
+		sobrenome string
+	}
+
+	jamesbond := pessoa{
+		nome:      "james",
+		sobrenome: "bond",
+	}
+
+	b, _ := json.Marshal(jamesbond)
+
+	fmt.Println(string(b))
+}
+
+func enconder() {
+	type pessoa struct {
+		nome      string
+		sobrenome string
+	}
+	jamesbond := pessoa{
+		nome:      "james",
+		sobrenome: "bond",
+	}
+	enconder := json.NewEncoder(os.Stdout)
+	enconder.Encode(jamesbond)
 }
