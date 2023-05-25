@@ -38,6 +38,7 @@ func main() {
 	// structtype()
 	// structEmbut()
 	// anonimoStruct()
+	deferer()
 
 }
 
@@ -514,4 +515,11 @@ func somandos(xises ...int) (int, int) {
 		soma += v
 	}
 	return soma, len(xises)
+}
+
+// Executa todo o codigo acima
+func deferer() {
+	defer fmt.Println("com defer, veio primeiro")
+	fmt.Println("sem defer, veio depois")
+
 }
