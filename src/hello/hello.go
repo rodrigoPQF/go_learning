@@ -34,7 +34,8 @@ func main() {
 	// sliceMultDimension()
 	// subjacentSlice()
 	// mapes()
-	maprange()
+	// maprange()
+	structtype()
 }
 
 func anyThing(x int) {
@@ -429,4 +430,25 @@ func maprange() {
 	fmt.Println(total)
 	delete(qualquercoisa, 123)
 	fmt.Println(qualquercoisa)
+}
+
+type cliente struct {
+	nome      string
+	sobrenome string
+	fumante   bool
+}
+
+func structtype() {
+	client1 := cliente{
+		nome:      "Ronald",
+		sobrenome: "Luc",
+		fumante:   true,
+	}
+	client2 := cliente{
+		"Joana",
+		"Darc",
+		true,
+	}
+
+	fmt.Println(client1, client2)
 }
