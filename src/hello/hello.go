@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 var y = "strings" // Disponivel em todo o package - não da para usar ":="
 var x int = 10
@@ -658,4 +660,20 @@ func recursive(x int) int {
 	}
 
 	return x * recursive(x-1)
+}
+
+func points() {
+	y := &x
+	fmt.Println(*y)
+}
+
+func ponteiros() {
+	x := 11
+	estarecebeumponteir(&x)
+}
+
+func estarecebeumponteir(x *int) {
+	*x++
+	fmt.Println("NA FUN", *x)
+
 }
