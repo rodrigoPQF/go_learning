@@ -35,7 +35,8 @@ func main() {
 	// subjacentSlice()
 	// mapes()
 	// maprange()
-	structtype()
+	// structtype()
+	structEmbut()
 }
 
 func anyThing(x int) {
@@ -451,4 +452,29 @@ func structtype() {
 	}
 
 	fmt.Println(client1, client2)
+}
+
+type pessoa struct {
+	nome  string
+	idade int
+}
+
+type profissional struct {
+	pessoa
+	titulo  string
+	salario int
+}
+
+func structEmbut() {
+	pessoa1 := pessoa{
+		nome:  "Ronald",
+		idade: 30,
+	}
+	pessoa2 := profissional{
+		pessoa:  pessoa{nome: "Maria", idade: 40},
+		titulo:  "Maricota",
+		salario: 4000,
+	}
+
+	fmt.Println(pessoa1, pessoa2)
 }
