@@ -501,6 +501,13 @@ func soma(xis, y int) int {
 	return xis + y
 }
 
+func enumslices() {
+	si := []int{10, 10, 1, 2, 3, 4}
+
+	total, _ := somandos(si...)
+	fmt.Println(total)
+}
+
 func somandos(xises ...int) (int, int) {
 	soma := 0
 	for _, v := range xises {
