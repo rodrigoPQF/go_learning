@@ -620,3 +620,18 @@ func expression() {
 
 	fmt.Println(xis, "vezes", yps(xis))
 }
+
+func retornaFunc() func(int) int {
+	return func(ix int) int {
+		return ix * 10
+
+	}
+}
+
+func chamandoe() {
+	xk := retornaFunc()
+	xl := xk(3)
+	xp := retornaFunc()(3)
+
+	fmt.Println(xl, xp)
+}
