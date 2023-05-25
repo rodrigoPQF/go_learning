@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"sort"
 )
 
 var y = "strings" // Disponivel em todo o package - não da para usar ":="
@@ -705,6 +706,13 @@ func enconder() {
 		nome:      "james",
 		sobrenome: "bond",
 	}
+
 	enconder := json.NewEncoder(os.Stdout)
 	enconder.Encode(jamesbond)
+}
+
+func sortStrings() {
+	ss := []string{"abobora", "omelete", "cafe", "xuxu", "leite"}
+	sort.Strings(ss)
+	fmt.Println(ss)
 }
