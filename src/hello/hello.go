@@ -38,7 +38,8 @@ func main() {
 	// structtype()
 	// structEmbut()
 	// anonimoStruct()
-	deferer()
+	// deferer()
+	chamando()
 
 }
 
@@ -522,4 +523,19 @@ func deferer() {
 	defer fmt.Println("com defer, veio primeiro")
 	fmt.Println("sem defer, veio depois")
 
+}
+
+type personal struct {
+	nome  string
+	idade int
+}
+
+func chamando() {
+	mauricio := personal{"Mauricio", 30}
+
+	mauricio.bomdia()
+}
+
+func (p personal) bomdia() {
+	fmt.Println(p.nome, "diz bom dia")
 }
