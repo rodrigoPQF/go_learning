@@ -635,3 +635,19 @@ func chamandoe() {
 
 	fmt.Println(xl, xp)
 }
+
+func closures() {
+	a := clo()
+	fmt.Println(a())
+	fmt.Println(a())
+	fmt.Println(a())
+
+}
+
+func clo() func() int {
+	x := 0
+	return func() int {
+		x++
+		return x
+	}
+}
