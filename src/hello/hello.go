@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"sort"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 var y = "strings" // Disponivel em todo o package - não da para usar ":="
@@ -746,4 +748,12 @@ func mySort() {
 
 	sort.Sort(ordenarPorPotencia(carros))
 	fmt.Println(carros)
+}
+
+func senha() {
+	senha := "3001rodrigo"
+
+	sb, _ := bcrypt.GenerateFromPassword([]byte(senha), 4)
+
+	fmt.Println(sb)
 }
