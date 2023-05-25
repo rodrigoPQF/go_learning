@@ -716,3 +716,34 @@ func sortStrings() {
 	sort.Strings(ss)
 	fmt.Println(ss)
 }
+
+type carro struct {
+	nome     string
+	potencia int
+	consumo  int
+}
+
+type ordenarPorPotencia []carro
+
+func (a ordenarPorPotencia) Len() int           { return len(a) }
+func (a ordenarPorPotencia) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a ordenarPorPotencia) Less(i, j int) bool { return a[i].potencia < a[j].potencia }
+
+type ordenarPorConsumo []carro
+
+func (a ordenarPorConsumo) Len() int           { return len(a) }
+func (a ordenarPorConsumo) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a ordenarPorConsumo) Less(i, j int) bool { return a[i].consumo < a[j].consumo }
+
+type ordenarPorLucroDono []carro
+
+func (a ordenarPorLucroDono) Len() int           { return len(a) }
+func (a ordenarPorLucroDono) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a ordenarPorLucroDono) Less(i, j int) bool { return a[i].nome < a[j].nome }
+
+func mySort() {
+	carros := []carro{{"Chevete", 50, 5}, {"Fiat", 50, 4}, {"Fusca", 5, 30}}
+
+	sort.Sort(ordenarPorPotencia(carros))
+	fmt.Println(carros)
+}
