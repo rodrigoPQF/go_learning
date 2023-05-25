@@ -651,3 +651,11 @@ func clo() func() int {
 		return x
 	}
 }
+
+func recursive(x int) int {
+	if x == 1 {
+		return x
+	}
+
+	return x * recursive(x-1)
+}
