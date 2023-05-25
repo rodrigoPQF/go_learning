@@ -33,7 +33,8 @@ func main() {
 	// makeSlice()
 	// sliceMultDimension()
 	// subjacentSlice()
-	mapes()
+	// mapes()
+	maprange()
 }
 
 func anyThing(x int) {
@@ -412,4 +413,20 @@ func mapes() {
 		fmt.Println(existe)
 	}
 
+}
+
+func maprange() {
+	qualquercoisa := map[int]string{
+		123:  "muitoLegal",
+		98:   "menos legal um pouco",
+		9393: "essa e massa",
+	}
+	fmt.Println(qualquercoisa)
+	total := 0
+	for key := range qualquercoisa {
+		total += key
+	}
+	fmt.Println(total)
+	delete(qualquercoisa, 123)
+	fmt.Println(qualquercoisa)
 }
