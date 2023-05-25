@@ -32,7 +32,8 @@ func main() {
 	// appendSlice()
 	// makeSlice()
 	// sliceMultDimension()
-	subjacentSlice()
+	// subjacentSlice()
+	mapes()
 }
 
 func anyThing(x int) {
@@ -391,4 +392,24 @@ func subjacentSlice() {
 	primeiroSlice := []int{1, 2, 3, 4, 5}
 	primeiroSlice = append(primeiroSlice[:2], primeiroSlice[4:]...)
 	fmt.Println(primeiroSlice)
+}
+
+func mapes() {
+	amigos := map[string]int{
+		"alfredo": 555555,
+		"joaona":  131393193,
+	}
+
+	fmt.Println(amigos)
+	fmt.Println(amigos["joana"])
+
+	amigos["gopher"] = 44444
+	fmt.Println(amigos)
+	if existe, naoexiste := amigos["romario"]; !naoexiste {
+		fmt.Println("NAO EXISTE")
+	} else {
+
+		fmt.Println(existe)
+	}
+
 }
