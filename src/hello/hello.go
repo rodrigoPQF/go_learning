@@ -36,7 +36,8 @@ func main() {
 	// mapes()
 	// maprange()
 	// structtype()
-	structEmbut()
+	// structEmbut()
+	anonimoStruct()
 }
 
 func anyThing(x int) {
@@ -477,4 +478,15 @@ func structEmbut() {
 	}
 
 	fmt.Println(pessoa1, pessoa2)
+}
+
+func anonimoStruct() {
+	x := struct {
+		nome  string
+		idade int
+	}{
+		nome:  "Mario",
+		idade: 50,
+	}
+	fmt.Println(x)
 }
