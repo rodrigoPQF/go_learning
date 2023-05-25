@@ -37,7 +37,8 @@ func main() {
 	// maprange()
 	// structtype()
 	// structEmbut()
-	anonimoStruct()
+	// anonimoStruct()
+
 }
 
 func anyThing(x int) {
@@ -489,4 +490,21 @@ func anonimoStruct() {
 		idade: 50,
 	}
 	fmt.Println(x)
+}
+
+func nome() int {
+	meuint := 30
+	return soma(meuint, 20)
+}
+
+func soma(xis, y int) int {
+	return xis + y
+}
+
+func somandos(xises ...int) (int, int) {
+	soma := 0
+	for _, v := range xises {
+		soma += v
+	}
+	return soma, len(xises)
 }
