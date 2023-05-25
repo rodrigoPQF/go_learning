@@ -539,3 +539,66 @@ func chamando() {
 func (p personal) bomdia() {
 	fmt.Println(p.nome, "diz bom dia")
 }
+
+type person1 struct {
+	nome      string
+	sobrenome string
+	idade     int
+}
+
+type dentista struct {
+	person1
+	dentesarrancados int
+	salario          float64
+}
+
+type arquiteto struct {
+	person1
+	tipodeconstru    string
+	tamanhodaloucura string
+}
+
+func (x arquiteto) oibomdiaa() {
+	fmt.Println("Meu nome é", x.nome, "e ouve bom dia")
+}
+func (x dentista) oibomdiaa() {
+	fmt.Println("Meu nome é", x.nome, "e ouve bom dia", x.dentesarrancados)
+}
+
+type gente interface {
+	oibomdiaa()
+}
+
+func serhumano(g gente) {
+	g.oibomdiaa()
+	switch g.(type) {
+	case dentista:
+		fmt.Println(g.(dentista).salario)
+	case arquiteto:
+		fmt.Println(g.(arquiteto).sobrenome)
+	}
+}
+
+func implement() {
+	mrdente := dentista{
+		person1: person1{
+			nome:      "Lau",
+			idade:     30,
+			sobrenome: "aaka",
+		},
+		dentesarrancados: 10,
+		salario:          3000,
+	}
+	mrpredio := arquiteto{
+		person1: person1{
+			nome:      "Vlad",
+			sobrenome: "Caus",
+			idade:     40,
+		},
+		tipodeconstru:    "Orizon",
+		tamanhodaloucura: "crazy",
+	}
+
+	serhumano(mrdente)
+	serhumano(mrpredio)
+}
