@@ -4,7 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"runtime"
 	"sort"
+	"sync"
+	"time"
 
 	"golang.org/x/crypto/bcrypt"
 )
@@ -764,4 +767,35 @@ func senha() {
 
 	fmt.Println(sb)
 
+}
+
+var wg = sync.WaitGroup{}
+
+func concorrent() {
+	fmt.Println(runtime.NumCPU())
+	fmt.Println(runtime.NumGoroutine())
+	wg.Add(2)
+
+	go func1()
+	go func2()
+
+	fmt.Println(runtime.NumGoroutine())
+	wg.Wait()
+
+}
+
+func func1() {
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+		time.Sleep(20)
+	}
+	wg.Done()
+}
+
+func func2() {
+	for i := 0; i < 10; i++ {
+		fmt.Println(i, 'n')
+		time.Sleep(20)
+	}
+	wg.Done()
 }
