@@ -7,6 +7,7 @@ import (
 	"runtime"
 	"sort"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"golang.org/x/crypto/bcrypt"
@@ -802,16 +803,18 @@ func func2() {
 
 func concorrent2() {
 	var mu sync.Mutex
-
-	contador := 0
+	var contador int64
+	contador = 0
 	totaldegoroutines := 10
 	var wg sync.WaitGroup
 	wg.Add(totaldegoroutines)
 
 	for i := 0; i < totaldegoroutines; i++ {
 		go func() {
+			atomic.AddInt64(&contador, 1)
 			mu.Lock()
 			v := contador
+			fmt.Println("Contador: ", atomic.LoadInt64(&contador))
 			runtime.Gosched()
 			v++
 			contador = v
