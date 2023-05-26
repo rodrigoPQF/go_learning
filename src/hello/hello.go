@@ -832,3 +832,5 @@ func chamandoOutropkg() {
 
 	mypackage.Printando()
 }
+
+// Doc https://rakyll.org/style-packages/
