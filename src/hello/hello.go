@@ -801,6 +801,8 @@ func func2() {
 }
 
 func concorrent2() {
+	var mu sync.Mutex
+
 	contador := 0
 	totaldegoroutines := 10
 	var wg sync.WaitGroup
@@ -808,10 +810,12 @@ func concorrent2() {
 
 	for i := 0; i < totaldegoroutines; i++ {
 		go func() {
+			mu.Lock()
 			v := contador
 			runtime.Gosched()
 			v++
 			contador = v
+			mu.Unlock()
 			wg.Done()
 		}()
 	}
