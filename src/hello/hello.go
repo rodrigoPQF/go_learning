@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"module/src/mypackage"
 	"os"
 	"runtime"
 	"sort"
@@ -825,4 +826,9 @@ func concorrent2() {
 	wg.Wait()
 	fmt.Println(contador)
 
+}
+
+func chamandoOutropkg() {
+
+	mypackage.Printando()
 }

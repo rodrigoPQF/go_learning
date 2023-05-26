@@ -1,2 +1,4 @@
+github.com/satori/go.UUID v1.2.0 h1:xIAcd+ZbZ4hCT3KFM8Ak6IjjdAXEQVhHQxKKqK0hx5M=
+github.com/satori/go.UUID v1.2.0/go.mod h1:k0Qa/6OupuDf46Bl9ErxTzG/4GBddZDixrKRCGbt9JA=
 golang.org/x/crypto v0.9.0 h1:LF6fAI+IutBocDJ2OT0Q1g8plpYljMZ4+lty+dsqw3g=
 golang.org/x/crypto v0.9.0/go.mod h1:yrmDGqONDYtNj3tH8X9dzUun2m2lzPa9ngI6/RUPGR0=
