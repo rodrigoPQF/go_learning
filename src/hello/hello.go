@@ -834,3 +834,26 @@ func chamandoOutropkg() {
 }
 
 // Doc https://rakyll.org/style-packages/
+
+func canal() {
+	canal := make(chan int)
+	go func() {
+		canal <- 42
+	}()
+	fmt.Println(<-canal)
+}
+
+func canal2() {
+	canal := make(chan int)
+
+	go send(canal)
+	receive(canal)
+}
+
+func send(s chan<- int) {
+	s <- 42
+
+}
+func receive(r <-chan int) {
+	fmt.Println("O valor recebido do canal foi:", <-r)
+}
