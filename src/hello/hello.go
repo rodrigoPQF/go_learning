@@ -857,3 +857,23 @@ func send(s chan<- int) {
 func receive(r <-chan int) {
 	fmt.Println("O valor recebido do canal foi:", <-r)
 }
+
+func chanelRange() {
+	c := make(chan int)
+	go meuloop(10, c)
+
+	prints(c)
+}
+func meuloop(t int, s chan<- int) {
+	for i := 0; i < t; i++ {
+		s <- i
+	}
+	close(s)
+}
+
+func prints(r <-chan int) {
+	for v := range r {
+		fmt.Println("Recebido no canal: ", v)
+
+	}
+}
