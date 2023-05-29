@@ -951,9 +951,9 @@ func mandaNumero(par, impar chan int, quit chan bool) {
 			impar <- i
 		}
 	}
+	quit <- true
 	close(par)
 	close(impar)
-	quit <- true
 }
 
 func receiver(par, impar chan int, quit chan bool) {
@@ -963,8 +963,23 @@ func receiver(par, impar chan int, quit chan bool) {
 			fmt.Println("O numero ", v, "é par")
 		case v := <-impar:
 			fmt.Println("O numero ", v, "é impar")
-		case <-quit:
+		case v, ok := <-quit:
+			if !ok {
+				fmt.Println("Comma ok", v)
+			}
 			return
 		}
 	}
+}
+
+func commaok() {
+	canal := make(chan int)
+
+	go func() {
+		canal <- 42
+		close(canal)
+	}()
+
+	v, ok := <-canal
+	fmt.Println(v, ok)
 }
