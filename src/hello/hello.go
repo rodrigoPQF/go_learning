@@ -877,3 +877,94 @@ func prints(r <-chan int) {
 
 	}
 }
+
+func selectChan() {
+	a := make(chan int)
+	b := make(chan int)
+	x := 500
+
+	go func(x int) {
+		for i := 0; i < x; i++ {
+
+		}
+	}(x / 2)
+	go func(x int) {
+		for i := 0; i < x; i++ {
+
+		}
+	}(x / 2)
+
+	for i := 0; i < x; i++ {
+		select {
+		case v := <-a:
+			fmt.Println("Canal A", v)
+		case v := <-b:
+			fmt.Println("Canal B", v)
+		}
+	}
+}
+
+func selectChan2() {
+	canal := make(chan int)
+	quit := make(chan int)
+
+	go recebequit(canal, quit)
+	enviarCanal(canal, quit)
+}
+
+func recebequit(canal chan int, quit chan int) {
+	for i := 0; i < 500; i++ {
+		fmt.Println("Recebido: ", <-canal)
+	}
+	quit <- 0
+
+}
+func enviarCanal(canal chan int, quit chan int) {
+	qlqrcoisa := 0
+
+	for {
+		select {
+		case canal <- qlqrcoisa:
+			qlqrcoisa++
+		case <-quit:
+			return
+		}
+	}
+
+}
+
+func selectChan3() {
+	par := make(chan int)
+	impar := make(chan int)
+	quit := make(chan bool)
+
+	go mandaNumero(par, impar, quit)
+	receiver(par, impar, quit)
+}
+
+func mandaNumero(par, impar chan int, quit chan bool) {
+	total := 40
+	for i := 0; i < total; i++ {
+		if i%2 == 0 {
+			par <- i
+		} else {
+			impar <- i
+		}
+	}
+	close(par)
+	close(impar)
+	quit <- true
+}
+
+func receiver(par, impar chan int, quit chan bool) {
+	for {
+		select {
+		case v := <-par:
+			fmt.Println("O numero ", v, "é par")
+		case v := <-impar:
+			fmt.Println("O numero ", v, "é impar")
+		case <-quit:
+			return
+		}
+	}
+}
