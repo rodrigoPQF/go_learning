@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"math/rand"
 	"module/src/mypackage"
 	"os"
@@ -1143,4 +1144,32 @@ func trabalho3(n int) int {
 	time.Sleep(time.Millisecond * time.Duration(rand.Int63n(1e3)))
 	return n
 
+}
+
+func trabalhandoErrors() {
+	n, err := fmt.Println("Hello")
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(n)
+	var aswer string
+	//esse caso o err tem que ser _
+	_, err = fmt.Scan(&aswer)
+
+	if err != nil {
+		panic(err)
+	}
+
+}
+
+func typesErros() {
+	f, err := os.Open("no-file.txt")
+	if err != nil {
+		fmt.Println("Err happened", err)
+		log.Println("Fica guardado o time", err)
+		log.Fatalln(err) // Finaliza o sistema todo
+		log.Panicln(err) // Funçoes em defer rodam e da pra usar recover e o log
+		panic(err)       // Funções com defer rodam
+	}
+	log.SetOutput(f) //Salva como arquivo
 }
