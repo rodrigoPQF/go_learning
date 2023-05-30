@@ -39,3 +39,9 @@ func TestSoma2(t *testing.T) {
 		t.Error("Expected: ", resultado, "Got: ", teste)
 	}
 }
+
+func BenchmarkSoma(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		mypackage.Soma(1, 1)
+	}
+}
