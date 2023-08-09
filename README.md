@@ -29,3 +29,5 @@ Nome das pastas e dos arquivos sempre no singular, em letras minusculas e separa
 - /website : Dados do site para o projeto
 - /web : Ativos de Web estáticos, modelos do lado do servidor e SPAs
 - /api : Documentação OpenAPI/Swagger
+
+Layout feito com base no https://github.com/golang-standards/project-layout , com algumas adaptações.
