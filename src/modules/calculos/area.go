@@ -14,10 +14,3 @@ func (t Triangulo) Area() float64 {
 	return (t.Base * t.Altura) / 2
 }
 
-/* Mesma coisa que :
- func () {
-	area(){
-
-	}
-}
-*/
